@@ -4,9 +4,6 @@ const { auth } = require('./middleware/auth');
 const app = express();
 app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
 app.use(express.json({ limit: '2mb' }));
-app.get('/', (req, res) => {
-  res.send('Construction Store Pro API is Running!');
-});
 app.get('/api/health', (q, s) => s.json({ ok: true }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api', auth);
